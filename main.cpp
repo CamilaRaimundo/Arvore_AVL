@@ -1,5 +1,52 @@
-#include <stdio.h>
-#include <locale.h>
+#include <stdio.h> //entrada e saída de dados
+#include <stdlib.h>
+#include <locale.h> //altera o idioma do programa 
+
+
+// Estrutura do nó da árvore
+struct No {
+    int valor;             // valor guardado no nó
+    struct No *esq;        // ponteiro para filho da esquerda
+    struct No *dir;        // ponteiro para filho da direita
+    int altura;            // altura do nó (necessário para balancear)
+};
+
+// Cria um novo nó
+No *novoNo(int valor) {
+    No *n = (No*)malloc(sizeof(No)); //abrir um espaço na memória
+    n->valor = valor;
+    n->esq = NULL;
+    n->dir = NULL;
+    n->altura = 1; //contador para o fb
+    return n;
+}
+
+// Função auxiliar para pegar altura
+int altura(No* n) {
+    if (n == NULL) 
+		return 0; //o nó não existe
+		
+    return n->altura; //retorna a altura
+}
+
+//=============================
+// Calcula fator de balanceamento
+	//Se FB = 0, 1 ou -1 -> está balanceado.
+	//Se FB = +2 ou -2 -> precisa de rotação para corrigir.
+int fatorBalanceamento(No *n) {
+    if (n == NULL) 
+		return 0;
+    return altura(n->esq) - altura(n->dir);
+}
+
+// Retorna o maior entre dois valores 
+int max(int a, int b) {
+    if (a > b) {
+        return a;   // se a for maior, retorna a
+    } else {
+        return b;   // caso contrário, retorna b
+    }
+}
 
 // Declaração das funções -------
 void criarArvore();
@@ -11,6 +58,12 @@ void exibirPreOrdem();
 void exibirPosOrdem();
 void exibirSimetrica();
 void exibirGrafos();
+
+
+
+
+
+
 
 
 
@@ -40,6 +93,7 @@ int main(){
 			printf("Digite a opção desejada (0 a 9): ");
 			scanf("%d", &op);
 		}
+		
 		switch (op) {
 			case 0: {
 				break;
@@ -94,6 +148,8 @@ int main(){
 }
 
 // Funções -----
+
+
 void criarArvore(){
 	printf("b");
 }
@@ -129,3 +185,5 @@ void exibirSimetrica(){
 void exibirGrafos(){
 	printf("j");
 }
+
+
