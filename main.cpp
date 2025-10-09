@@ -1,5 +1,5 @@
 #include <stdio.h> //entrada e saída de dados
-#include <stdlib.h>
+#include <stdlib.h> //contém as funções de alocação dinâmica
 #include <locale.h> //altera o idioma do programa 
 
 
@@ -29,7 +29,6 @@ int altura(No* n) {
     return n->altura; //retorna a altura
 }
 
-//=============================
 // Calcula fator de balanceamento
 	//Se FB = 0, 1 ou -1 -> está balanceado.
 	//Se FB = +2 ou -2 -> precisa de rotação para corrigir.
@@ -58,13 +57,6 @@ void exibirPreOrdem();
 void exibirPosOrdem();
 void exibirSimetrica();
 void exibirGrafos();
-
-
-
-
-
-
-
 
 
 int main(){
